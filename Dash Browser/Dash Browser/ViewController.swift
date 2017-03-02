@@ -7,13 +7,18 @@
 //
 
 import Cocoa
+import WebKit
 
 class ViewController: NSViewController {
+    
+    @IBOutlet var webView: WebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // load index.html into our web-view
+        let urlIndex = Bundle.main.url(forResource: "index", withExtension: "html")
+        webView.mainFrame.load(URLRequest(url: urlIndex!))
     }
 
     override var representedObject: Any? {
@@ -21,7 +26,6 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
 
 }
 
